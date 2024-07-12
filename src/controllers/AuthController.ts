@@ -3,10 +3,7 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-
-export const register = async (req: Request, res: Response) => {
+export const registerC = async (req: Request, res: Response) => {
   try {
     const { name, username, password, phoneNo, userType } = req.body;
     // console.log(req.body);
@@ -44,7 +41,7 @@ export const register = async (req: Request, res: Response) => {
   }
 };
 
-export const login = async (req: Request, res: Response) => {
+export const loginC = async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
     if (!username || !password) {
