@@ -3,6 +3,7 @@ import connectToDb from "./db/ConnectToDb.js";
 import "dotenv/config";
 import authRouter from "./routes/AuthRouter.js";
 import TodoRouter from "./routes/TodoRouter.js";
+import authenticate from "./middleware/authentication.js";
 
 import cors from "cors";
 
@@ -11,7 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/auth", authRouter);
-app.use("/todo", TodoRouter);
+app.use("/todo",authenticate, TodoRouter);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Fact-1 Api");

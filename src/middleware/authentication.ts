@@ -13,7 +13,7 @@ const authenticate = (req: Request, res: Response, next: NextFunction) => {
   }
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET as string) as User;
-    req.body.userId = payload._id;
+    req.body.user_id = payload._id;
     next();
   } catch (error) {
     if (error instanceof jwt.TokenExpiredError) {
