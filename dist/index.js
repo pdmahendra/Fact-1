@@ -5,6 +5,7 @@ import authRouter from "./routes/AuthRouter.js";
 import TodoRouter from "./routes/TodoRouter.js";
 import authenticate from "./middleware/authentication.js";
 import cors from "cors";
+console.log(process.env.MONGO_URL);
 const app = express();
 app.use(express.json());
 app.use(cors());
